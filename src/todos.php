@@ -1,34 +1,14 @@
 <?php
-// use array to hold todo items
-$todo_items = [
-    'Task 1',
-    'Task 2',
-    'Task 3'
-];
+require 'TodoList.php';
 
-// call function to output todo list
-print_todo_list($todo_items);
+// create todo list object
+$todoList = new TodoList();
 
+// add todo items to todo list
+$todoList->add('Task 1');
+$todoList->add('Task 2');
+$todoList->add('Task 3');
 
-// function declarations
-function print_todo_list(array $todo_list)
-{
-    echo 'Todos:' . PHP_EOL;
+// output todo list
+$todoList->printList();
 
-    $length = count($todo_list);
-    for ($i = 0; $i < $length; ++$i) {
-        // call function which returns a formatted todo item
-        echo format_todo_item($todo_list[$i], $i === 1) . PHP_EOL;
-    }
-}
-
-function format_todo_item($todo_item, $completed = false)
-{
-    $output = '  - ' . $todo_item;
-
-    if ($completed) {
-        $output .= ' (completed)';
-    }
-
-    return $output;
-}
