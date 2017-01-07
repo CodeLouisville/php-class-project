@@ -25,20 +25,35 @@
             <h1>Todos</h1>
             <hr>
             <ul id="sortable" class="list-unstyled">
-                <li class="ui-state-default">
-                    <div class="checkbox">
-                        <label><input type="checkbox" value="">Task One</label>
-                    </div>
-                </li>
-                <li class="ui-state-default">
-                    <div class="checkbox">
-                        <label><input type="checkbox" value="">Task Three</label>
-                    </div>
-                </li>
+<?php
+require_once '../src/TodoRepository.php';
+$todoRepository = new TodoRepository();
+
+$incomplete_todo_list = $todoRepository->getIncompleteTodoList();
+foreach ($incomplete_todo_list->items as $todo_item) {
+?>
+                    <li class="ui-state-default">
+                        <div class="checkbox">
+                            <label><input type="checkbox" value=""><?php echo htmlentities($todo_item->getTitle()); ?></label>
+                        </div>
+                    </li>
+<?php
+}
+?>
             </ul>
+
             <hr>
+
             <ul id="done-items" class="list-unstyled">
-                <li><input type="checkbox" value="" checked disabled>Task Two</li>
+<?php
+$completed_todo_list = $todoRepository->getCompletedTodoList();
+foreach ($completed_todo_list->items as $todo_item) {
+?>
+                <li><input type="checkbox" value="" checked disabled><?php echo htmlentities($todo_item->getTitle()); ?></li>
+<?php
+}
+?>
+
             </ul>
         </div>
     </div>
