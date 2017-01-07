@@ -6,16 +6,29 @@ $todo_items = [
     'Task 3'
 ];
 
-// output todo list from array
-echo 'Todos:' . PHP_EOL;
+// call function to output todo list
+print_todo_list($todo_items);
 
-$length = count($todo_items);
-for ($i = 0; $i < $length; ++$i) {
-    echo '  - ' . $todo_items[$i];
 
-    if ($i === 1) {
-        echo ' (completed)';
+// function declarations
+function print_todo_list(array $todo_list)
+{
+    echo 'Todos:' . PHP_EOL;
+
+    $length = count($todo_list);
+    for ($i = 0; $i < $length; ++$i) {
+        // call function which returns a formatted todo item
+        echo format_todo_item($todo_list[$i], $i === 1) . PHP_EOL;
+    }
+}
+
+function format_todo_item($todo_item, $completed = false)
+{
+    $output = '  - ' . $todo_item;
+
+    if ($completed) {
+        $output .= ' (completed)';
     }
 
-    echo PHP_EOL;
+    return $output;
 }
