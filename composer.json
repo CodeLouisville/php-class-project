@@ -1,0 +1,17 @@
+{
+    "name": "codelouisville/php-todo-project",
+    "description": "A sample PHP project to create a basic Todo list.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jason McCreary",
+            "email": "jason@pureconcepts.net"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Todo\\": "src/Todo"
+        }
+    }
+}

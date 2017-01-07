@@ -26,8 +26,8 @@
             <hr>
             <ul id="sortable" class="list-unstyled">
 <?php
-require_once '../src/TodoRepository.php';
-$todoRepository = new TodoRepository();
+require_once '../vendor/autoload.php';
+$todoRepository = new \Todo\TodoRepository();
 
 $incomplete_todo_list = $todoRepository->getIncompleteTodoList();
 foreach ($incomplete_todo_list->items as $todo_item) {

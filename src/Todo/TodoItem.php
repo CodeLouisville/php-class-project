@@ -1,4 +1,5 @@
 <?php
+namespace Todo;
 
 class TodoItem
 {

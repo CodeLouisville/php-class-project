@@ -1,5 +1,5 @@
 <?php
-require 'TodoItem.php';
+namespace Todo;
 
 class TodoList
 {

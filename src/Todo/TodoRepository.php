@@ -1,5 +1,7 @@
 <?php
-require 'TodoList.php';
+namespace Todo;
+
+use PDO;
 
 class TodoRepository
 {

@@ -1,5 +1,7 @@
 <?php
-require 'TodoRepository.php';
+use Todo\TodoRepository;
+
+require_once __DIR__ . '/../vendor/autoload.php';
 
 // create the todo repository
 $todoRepository = new TodoRepository();
