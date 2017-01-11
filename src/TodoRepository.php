@@ -7,7 +7,7 @@ class TodoRepository
 
     public function __construct()
     {
-        $this->dbConnection = new mysqli('localhost', 'dbuser', 'dbpass', 'todos_dev');
+        $this->dbConnection = new PDO('mysql:dbname=todos_dev;host=127.0.0.1', 'dbuser', 'dbpass');
     }
 
     public function getTodoList()
@@ -20,7 +20,7 @@ class TodoRepository
         }
 
         $todoList = new TodoList();
-        while ($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             $todoList->add($row['title']);
         }
 
